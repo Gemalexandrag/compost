@@ -1,4 +1,4 @@
-const getCompostLocations = () =>{
+const getCompostLocations = (userAddress) =>{
   $.ajax({
     url: "https://data.cityofnewyork.us/resource/if26-z6xq.json",
     type: "GET",
@@ -7,20 +7,21 @@ const getCompostLocations = () =>{
       "$$app_token" : "1fpdxhyhYM31oAwRygDarGUOC"
     }
 }).done(function(data) {
-  alert("Retrieved " + data.length + " records from the dataset!");
-  console.log(data);
+  findNearest(data, userAddress);
 });
 }
 
-const findNearest = (data) =>{
-
-}
-
-const reverseGeocoding = (latitude, longitude) =>{
-  const url = "https://us1.locationiq.com/v1/reverse.php?key="+"pk.2409b9389054765bf0147fa8ed85beda"+"&lat="+latitude+"&lon="+longitude+"&format=json"
-  var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url" : url,
-  "method": "GET"
+const findNearest = (data, userAddress) =>{
+  let travelTime = [];
+  for(let i = 0; i < data.length; i++){
+    let address = data[i].location + ", " + data[i].borough + ", New York " + data[i].zip_code;
+    const url = "http://dev.virtualearth.net/REST/V1/Routes/Driving?o=JSON&wp.0=" + userAddress.replace(" ", "%20") + "&wp.1=" + address.replace(" ", "%20") + "&routeAttributes=routePath&key=AunGgSEZ_MbKXvzPyN3B4kvqK9Ge-k8sNG3zyJ976T4DpWBAzDprClBd-Z4hA4af";
+    $.ajax({
+      url: url,
+      type: "GET"
+  }).done(function(info) {
+    travelTime.push(info.resourceSets[0].resources[0].travelDuration);
+  });
+  }
+  console.log(Math.min(...travelTime));
 }

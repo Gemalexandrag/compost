@@ -1,16 +1,11 @@
 <html>
-<body>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="compost.js"></script>
+    <script src="user.js"></script>
+    <p>Click the button to get your coordinates.</p>
 
-<p>Click the button to get your coordinates.</p>
+    <button onclick="getLocation()">Try It</button>
 
-<button onclick="getLocation()">Try It</button>
-
-<p id="demo"></p>
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="compost.js"></script>
-<script src="user.js"></script>
-<script>
-  $(document).ready(function(){getCompostLocations()});
-  </script>
+  </body>
 </html>
