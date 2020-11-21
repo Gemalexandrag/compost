@@ -11,20 +11,6 @@ const getCompostLocations = (userAddress) =>{
 });
 }
 
-const sortTimes = (travelArray) => {
-  let tempArray = travelArray;
-  console.log("0");
-  let min = tempArray[0];
-  for(let i = 1; i < tempArray.length; i++){
-    console.log("1");
-    if(min > tempArray[i]){
-      console.log("2");
-      min = tempArray[i];
-    };
-  };
-  return min;
-};
-
 const findNearest = (data, userAddress) => {
   let travelTime = [];
   for(let i = 0; i < data.length; i++){
@@ -35,9 +21,14 @@ const findNearest = (data, userAddress) => {
       type: "GET"
     }).done(function(info) {
       travelTime.push(info.resourceSets[0].resources[0].travelDuration);
+      if(i == data.length - 1){
+        let minTime = travelTime.sort((a,b)=>a-b)[0];
+        for(let j = 0; j < data.length; j++){
+          if(travelTime[j] == minTime){
+            console.log(data[j].location + ", " + data[j].borough + ", New York " + data[j].zip_code);
+          }
+        }
+      }
     });
   };
-  console.log(travelTime);
-  let minTime = sortTimes(travelTime);
-  console.log(minTime);
 };
