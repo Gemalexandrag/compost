@@ -29,6 +29,26 @@ const findNearest = (data, userAddress) => {
         for(let j = 0; j < data.length; j++){
           if(saveTime[j] == minTime){
             $("body").append("<br> Travel time: " + minTime + "<br> Address:" + data[j].location + ", " + data[j].borough + ", New York " + data[j].zip_code);
+            var map = new Microsoft.Maps.Map('#myMap');
+           //Load the directions module.
+           Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
+               //Create an instance of the directions manager.
+               directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+
+               //Create waypoints to route between.
+               var seattleWaypoint = new Microsoft.Maps.Directions.Waypoint({ address: userAddress });
+               directionsManager.addWaypoint(seattleWaypoint);
+
+               var workWaypoint = new Microsoft.Maps.Directions.Waypoint({ address: address});
+               directionsManager.addWaypoint(workWaypoint);
+
+               //Specify the element in which the itinerary will be rendered.
+               directionsManager.setRenderOptions({ itineraryContainer: '#directionsItinerary' });
+
+               //Calculate directions.
+               directionsManager.calculateDirections();
+           });
+            return;
           }
         }
       }
