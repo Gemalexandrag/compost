@@ -28,7 +28,8 @@ const findNearest = (data, userAddress) => {
         console.log(saveTime);
         for(let j = 0; j < data.length; j++){
           if(saveTime[j] == minTime){
-            $("body").append("<br> Travel time: " + minTime + "<br> Address:" + data[j].location + ", " + data[j].borough + ", New York " + data[j].zip_code);
+            $("#coordinates").append("<br> Travel time: " + minTime + "<br> Address: " + data[j].location + ", " + data[j].borough + ", New York " + data[j].zip_code);
+            $("#loading").remove();
             var map = new Microsoft.Maps.Map('#myMap');
            //Load the directions module.
            Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {

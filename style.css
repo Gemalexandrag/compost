@@ -1,0 +1,42 @@
+body{
+  background-color: rgb(230, 230, 230);
+  text-align: center;
+  margin: 0 0 0 0;
+}
+h1{
+  color: rgb(83, 46, 28);
+  font-family: 'Aclonica', sans-serif;
+  margin-top: 60px;
+}
+p{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+table {
+  width: 90%;
+}
+#container{
+  border: 10px rgb(197, 168, 128) solid;
+  background-color: rgb(197, 168, 128);
+}
+button{
+  width: 120px;
+  height: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: rgb(83, 46, 28);
+  border: 3px rgb(83, 46, 28) solid;
+  border-radius: 10px;
+  background-color: transparent;
+  transition-duration: 1s;
+}
+button:hover{
+  width: 120px;
+  height: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: rgb(83, 46, 28);
+  border: 3px rgb(230, 230, 230) solid;
+  background-color: rgb(230, 230, 230);
+  border-radius: 10px;
+}

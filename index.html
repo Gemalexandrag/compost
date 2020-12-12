@@ -1,20 +1,30 @@
 <html>
-  <body>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AunGgSEZ_MbKXvzPyN3B4kvqK9Ge-k8sNG3zyJ976T4DpWBAzDprClBd-Z4hA4af' async defer></script>
     <script src="compost.js"></script>
     <script src="user.js"></script>
-    <p>Click the button to get your coordinates.</p>
-
-    <button onclick="getLocation()">Try It</button>
-
+  </head>
+  <body>
+    <div id="container">
+      <h1>Nearest Compost Site</h1>
+      <p>Click the button to get your coordinates.</p>
+      <button onclick="getLocation()">Try It</button>
+    </div>
+    <p id="coordinates"></p><br>
+    <p id="loading"></p>
     <table>
       <tr>
         <td>
           <div id="myMap" style='position:relative;width:600px;height:400px;'></div>
         </td>
         <td>
-          <div id='directionsItinerary'></div>
+          <div id='directionsItinerary' style='position:relative;height:400px;overflow:scroll;'></div>
         </td>
       </tr>
     </table>

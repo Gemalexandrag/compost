@@ -2,13 +2,15 @@ const getLocation = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
-    $("body").append("Geolocation is not supported by this browser.");
+    $("#coordinates").append("Geolocation is not supported by this browser.");
+
   }
 }
 
 const showPosition = (position) => {
-  $("body").append("Latitude: " + position.coords.latitude +
+  $("#coordinates").append("Latitude: " + position.coords.latitude +
   "<br>Longitude: " + position.coords.longitude);
+  $("#loading").append("Loading...");
   reverseGeocoding(position.coords.latitude, position.coords.longitude);
 }
 
