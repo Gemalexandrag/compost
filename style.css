@@ -1,25 +1,28 @@
-body{
+body {
   background-color: rgb(230, 230, 230);
   text-align: center;
   margin: 0 0 0 0;
   padding: 0 0 0 0;
 }
-h1{
+
+h1 {
   color: white;
   font-family: 'Vesper Libre', serif;
   font-size: 60px;
   margin-top: 60px;
-
 }
-p{
+
+p {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
-  color: white;
+  color: black;
 }
+
 table {
   width: 90%;
 }
-#container{
+
+#container {
   background-image: url("https://www.kellogggarden.com/wp-content/uploads/2020/03/Sprouting-plants.jpg");
   background-size: cover;
   margin: 0 0 0 0;
@@ -28,9 +31,14 @@ table {
   background-position: center;
   width: 100%;
   height: 400px;
-  position: absolute;
+  display: block;
 }
-button{
+
+#map-container {
+  display: block;
+}
+
+button {
   width: 120px;
   height: 40px;
   font-family: 'Montserrat', sans-serif;
@@ -41,7 +49,8 @@ button{
   background-color: transparent;
   transition-duration: 1s;
 }
-button:hover{
+
+button:hover {
   width: 120px;
   height: 40px;
   font-family: 'Montserrat', sans-serif;
