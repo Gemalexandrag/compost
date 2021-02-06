@@ -3,7 +3,6 @@ const getLocation = () => {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
     $("#coordinates").append("Geolocation is not supported by this browser.");
-
   }
 }
 
