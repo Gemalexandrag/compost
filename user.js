@@ -1,15 +1,20 @@
 const getLocation = () => {
+$("#latitude").text("");
+$("#longitude").text("");
+$("#travel-time").text("");
+$("#address").text("");
+$("#loading").text("");
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
-    $("#coordinates").append("Geolocation is not supported by this browser.");
+    $("#coordinates").text("Geolocation is not supported by this browser.");
   }
 }
 
 const showPosition = (position) => {
-  $("#coordinates").append("Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude);
-  $("#loading").append("Loading...");
+  $("#latitude").text("Latitude: " + position.coords.latitude);
+  $("#longitude").text("Longitude: " + position.coords.longitude);
+  $("#loading").text("Loading...");
   reverseGeocoding(position.coords.latitude, position.coords.longitude);
 }
 

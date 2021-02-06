@@ -23,15 +23,20 @@
     <button onclick="getLocation()">Try It</button>
   </div>
   <div id="map-container">
-    <p id="coordinates"></p><br>
+    <div id="info-container">
+    <p id="latitude"></p>
+    <p id="longitude"></p>
+    <p id="travel-time"></p>
+    <p id="address"></p><br>
     <p id="loading"></p>
+  </div>
     <table>
       <tr>
         <td>
-          <div id="myMap" style='position:relative;width:600px;height:400px;'></div>
+          <div id="myMap"></div>
         </td>
         <td>
-          <div id='directionsItinerary' style='position:relative;height:400px;overflow:scroll;'></div>
+          <div id='directionsItinerary' ></div>
         </td>
       </tr>
     </table>

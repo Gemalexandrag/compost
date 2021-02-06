@@ -1,3 +1,4 @@
+
 body {
   background-color: rgb(230, 230, 230);
   text-align: center;
@@ -9,7 +10,7 @@ h1 {
   color: white;
   font-family: 'Vesper Libre', serif;
   font-size: 60px;
-  margin-top: 60px;
+
 }
 
 p {
@@ -36,6 +37,32 @@ table {
 
 #map-container {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#myMap{
+  position:relative;
+  width:600px;
+  height:400px;
+  float:right;
+}
+
+#directionsItinerary{
+  position:relative;
+  height:400px;
+  overflow:scroll;
+  float:left;
+}
+
+#info-container{
+  background-color: white;
+  border-radius: 15px;
+  width: 600px;
+  padding: 15px;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 button {

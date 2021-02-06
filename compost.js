@@ -16,7 +16,6 @@ const findNearest = (data, userAddress) => {
   let saveTime = [];
   let dataCounter = 0;
   for(let i = 0; i < data.length; i++){
-    console.log(i);
     let address = data[i].location.split(",")[0] + ", " + data[i].borough + ", New York " + data[i].zip_code;
     const url = "http://dev.virtualearth.net/REST/V1/Routes/Driving?o=JSON&wp.0=" + userAddress.replace(" ", "%20") + "&wp.1=" + address.replace(" ", "%20") + "&routeAttributes=routePath&key=AunGgSEZ_MbKXvzPyN3B4kvqK9Ge-k8sNG3zyJ976T4DpWBAzDprClBd-Z4hA4af";
     $.ajax({
@@ -25,17 +24,14 @@ const findNearest = (data, userAddress) => {
     }).done(function(info) {
       dataCounter += 1;
       travelTime[i] = info.resourceSets[0].resources[0].travelDuration;
-      console.log(travelTime);
       saveTime[i] = info.resourceSets[0].resources[0].travelDuration;
       let length = data.length;
-      console.log(dataCounter, length);
       if(dataCounter == length){
-        console.log("hello 6");
         let minTime = travelTime.sort((a,b)=>a-b)[0];
-        console.log(saveTime);
         for(let j = 0; j < data.length; j++){
           if(saveTime[j] == minTime){
-            $("#coordinates").append("<br> Travel time: " + minTime + "<br> Address: " + data[j].location + ", " + data[j].borough + ", New York " + data[j].zip_code);
+            $("#travel-time").text("Travel time: " + minTime);
+            $("#address").text("Address: " + data[j].location + ", " + data[j].borough + ", New York " + data[j].zip_code);
             $("#loading").remove();
             var map = new Microsoft.Maps.Map('#myMap');
             //Load the directions module.
