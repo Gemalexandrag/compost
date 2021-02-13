@@ -27,6 +27,7 @@ const findNearest = (data, userAddress) => {
     }).done(function(info) {
       dataCounter += 1;
       travelTime[i] = info.resourceSets[0].resources[0].travelDuration;
+      console.log(travelTime);
       saveTime[i] = info.resourceSets[0].resources[0].travelDuration;
       let length = data.length;
       if (dataCounter == length) {
