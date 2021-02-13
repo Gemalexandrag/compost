@@ -27,7 +27,7 @@ const reverseGeocoding = (latitude, longitude) => {
     "async": true,
     "crossDomain": true,
     "url": url,
-    "method": "GET";
+    "method": "GET"
   };
   $.ajax(settings).done(function(response) {
     let address = response.address.house_number + " " + response.address.road + ", " + response.address.city + ", " + response.address.state + " " + response.address.postcode;
